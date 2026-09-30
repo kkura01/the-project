@@ -1,0 +1,39 @@
+---
+description: Generate consistent Git commit messages from the diff
+alwaysApply: true
+---
+
+# Commit messages
+
+When the user asks for a commit, draft the message from the staged diff. Follow `prompts/commit-message.md`.
+
+## Format
+
+```
+<type>: <why this change exists>
+
+- <area or file>: <what changed>
+```
+
+## Types
+
+- `feature` — new behavior
+- `fix` — bug fix
+- `refactor` — behavior-preserving restructure
+- `test` — tests only
+- `docs` — documentation only
+- `chore` — tooling, dependencies, or repo maintenance
+
+## Rules
+
+- Lead with why, in one sentence.
+- Name each area or file that changed. Keep the body to the point.
+- Match the tone of recent `git log` messages when history exists.
+- Do not commit unless the user explicitly asks.
+
+```
+feature: keep session tokens on the server
+
+- auth/session.ts: sign tokens only in the server action
+- app/login/page.tsx: stop returning the token to the client
+```

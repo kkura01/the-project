@@ -1,0 +1,24 @@
+---
+description: Break AI-assisted work into small, reviewable Git commits
+alwaysApply: true
+---
+
+# Small logical commits
+
+Git is the source of truth for this repo. Chat checkpoints and partial reverts are not a substitute for commits.
+
+## Before a large feature
+
+1. Follow `prompts/feature-breakdown.md`.
+2. Split the work into microtasks that each touch about 2–5 files.
+3. Implement one microtask, verify it with `prompts/verify-change.md`, then move on.
+
+## While changing code
+
+- One logical change per commit. Leave unrelated edits unstaged.
+- A change should be reversible without undoing neighboring work.
+- Use branches for work that should stay off `main` until it is reviewed.
+
+## Commit size
+
+Prefer a commit that matches one microtask. A larger commit is acceptable only when the user asks for it, and only after the staged diff has been checked as one coherent change.
