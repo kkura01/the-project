@@ -1,0 +1,19 @@
+---
+description: Repository, Python, HTTP, and Compose naming
+alwaysApply: true
+---
+
+# Naming
+
+- Roots are `backend/` and `frontend/`. Python imports start at `app`.
+- `app/core/` is shared infrastructure. `app/modules/<feature>/` is one feature package. Process routes such as `GET /health` stay in `app/main.py`.
+- Packages, modules, functions, and test files use snake_case. Tests live in `backend/tests/test_<subject>.py`.
+- HTTP paths and JSON keys use snake_case.
+- Environment variables use UPPER_SNAKE. Commit `.env.example`. Do not commit `.env`.
+- Compose services are `api`, `db`, `redis`, and `minio`. The database image is `postgres:16`.
+
+```
+backend/app/modules/orders/routes.py
+GET /health
+DATABASE_URL=postgresql://app:app@db:5432/app
+```
