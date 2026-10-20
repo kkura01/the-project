@@ -1,6 +1,6 @@
 # the-project
 
-API and data services live in this repo. The Vite TypeScript app in `frontend/` comes in a later step.
+API, worker, and the Vite app live in this repo.
 
 AI-assisted changes are recorded in Git. Chat checkpoints are a convenience; commits are the history.
 
@@ -9,10 +9,10 @@ AI-assisted changes are recorded in Git. Chat checkpoints are a convenience; com
 Docker Compose starts the API and Postgres with the defaults in `.env.example`. Copy that file to `.env` only when you need to override them.
 
 ```powershell
-docker compose up --build api db
+docker compose up --build api db frontend
 ```
 
-`GET http://localhost:8000/health` returns `{"status":"ok"}`.
+`GET http://localhost:8000/health` returns `{"status":"ok"}`. The home page at `http://localhost:5173/` shows that status.
 
 `docker compose up` also starts Redis and MinIO. MinIO listens on port 9000, and its console listens on port 9001.
 
