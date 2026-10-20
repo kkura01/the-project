@@ -16,6 +16,8 @@ dependencies = [
 dev = [
   "httpx2>=2.13",
   "pytest>=8",
+  "mypy>=1.13",
+  "ruff>=0.8",
 ]
 
 [tool.setuptools.packages.find]
@@ -23,3 +25,11 @@ include = ["app*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py312"
+src = ["."]
+
+[tool.mypy]
+python_version = "3.12"
+files = ["app", "tests"]
