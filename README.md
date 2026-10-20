@@ -26,6 +26,14 @@ py -m venv .venv
 .venv\Scripts\pytest
 ```
 
+## Lint
+
+From `backend/`, after the dev extra is installed:
+
+```powershell
+.venv\Scripts\ruff check
+```
+
 ## Layout
 
 - `backend/app/main.py` — process entry and `GET /health`
