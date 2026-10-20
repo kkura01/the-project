@@ -58,6 +58,20 @@ services:
       timeout: 5s
       retries: 10
 
+  worker:
+    build:
+      context: ./backend
+    command: ["python", "-m", "app.worker"]
+
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "5173:5173"
+    depends_on:
+      api:
+        condition: service_healthy
+
 volumes:
   postgres_data:
   minio_data:
